@@ -20,7 +20,8 @@ ContractON::Application.routes.draw do
   match '/cshow', to: 'company#show'
   match '/csignin', to: 'sessions#new'
   match '/csignout', to: 'sessions#destroy', via: :delete
-
+  
+  match '/search', to: 'companies#search'
   get "static_pages/home"
 
   resources :companies
