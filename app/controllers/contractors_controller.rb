@@ -1,5 +1,5 @@
 class ContractorsController < ApplicationController
-  before_filter :correct_contractor, only: [:edit, :update]
+#  before_filter :correct_contractor, only: [:edit, :update]
   
 def signup
  @contractor = Contractor.new
@@ -8,31 +8,17 @@ end
 
   def show
     @contractor = Contractor.find(params[:id])
-    @title = @contractor.email
-   end
-
-  # GET /contractors/new
-  # GET /contractors/new.json
-  def new
-    @contractor = Contractor.new
   end
 
-
-  # POST /contractors
-  # POST /contractors.json
-  def create
+   def create
     @contractor = Contractor.new(params[:contractor])
       if @contractor.save
-        signin @contractor
-        flash[:success] = "Sign up successful"
-        redirect_back_or root_path
+        sign_in @contractor
+        flash[:success] = "Welcome to ContractON!"
+        redirect_to root_path
+      else
+        render 'signup'
    end
-
-  # PUT /contractors/1
-  # PUT /contractors/1.json
-  def update
-    @contractor = Contractor.find(params[:id])
-  end
-end
+ end
 end
 
