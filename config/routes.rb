@@ -1,6 +1,8 @@
 ContractON::Application.routes.draw do
   root :to => 'static_pages#home'
   resources :companies
+  resources :contractors
+  resources :profiles
   resources :sessions, only: [:new, :create, :destroy]
  
 
@@ -8,33 +10,17 @@ ContractON::Application.routes.draw do
 
   get "static_pages/home"
 
-  resources :contractors
   match '/signup', to: 'contractors#signup'
-
-  #get "static_pages/home"
-  #resources :companies
-  get "contractors/signup" 
-  get "company/signup"
   match '/csishow', to: 'sessions#show'
-  match '/csignup', to: 'company#signup'
-  match '/cshow', to: 'company#show'
+  match '/csignup', to: 'companies#signup'
+  match '/cshow', to: 'companies#show'
   match '/csignin', to: 'sessions#new'
   match '/csignout', to: 'sessions#destroy', via: :delete
   
   match '/search', to: 'companies#search'
-  get "static_pages/home"
 
-  resources :companies
   get "contractors/signup" 
   get "company/signup"
-
-
-  #match '/signup', to: 'company#signup'
-  #match '/show', to: 'company#show'
-
-  match '/signup', to: 'company#signup'
-  match '/show', to: 'company#show'
-
 
 
   # The priority is based upon order of creation:
