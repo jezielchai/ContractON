@@ -5,8 +5,7 @@ ContractON::Application.routes.draw do
   resources :profiles
   resources :sessions, only: [:new, :create, :destroy]
  
-
-  #root to: 'static_pages#home'
+  get "contractors/relationship"
 
   get "static_pages/home"
 

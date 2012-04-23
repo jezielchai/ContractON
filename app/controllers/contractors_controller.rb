@@ -10,6 +10,9 @@ end
     @contractor = Contractor.find(params[:id])
   end
 
+  def relationship
+  end
+
    def create
     @contractor = Contractor.new(params[:contractor])
       if @contractor.save
