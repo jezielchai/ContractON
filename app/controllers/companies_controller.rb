@@ -19,8 +19,8 @@ class CompaniesController < ApplicationController
   end
 
   def search
-    # @Contractor = Contractor.find(params[:search])    
-     @Contractor = Contractor.all :conditions => {:profession => params[:profession]}
+     @contractors = Contractor.search(params[:search])    
+    # @Contractor = Contractor.all :conditions => {:profession => params[:profession]}
   end
 end
 
