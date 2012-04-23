@@ -7,7 +7,7 @@ class CompaniesController < ApplicationController
 	  @company = Company.new(params[:company])
         if @company.save
 		sign_in @company
-		flash[:success] = "Welcome to the ContractON!"
+		flash[:success] = "Welcome to ContractON!"
 	  redirect_to @company
 	else
 		render 'new'
@@ -16,6 +16,11 @@ class CompaniesController < ApplicationController
 
   def show
 	  @Company =Company.find(params[:id])
+  end
+
+  def search
+    # @Contractor = Contractor.find(params[:search])    
+     @Contractor = Contractor.all :conditions => {:profession => params[:profession]}
   end
 end
 

@@ -1,0 +1,12 @@
+<div class="hero-unit" >
+<br/>
+<br/>
+<br/>
+<%= form_tag companies_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= select_tag :profession, options_for_select([['Engineer','engineer'], ['Architect','architect'], ['Scientist','scientist']]), :onchange => "this.form.submit();" %>   
+     <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+</div>

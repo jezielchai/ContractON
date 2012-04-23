@@ -16,7 +16,7 @@
 			  <div class="alert alert-<%= key %>"><%= value %></div>
 		  <% end %>
 	        <div class="container">
-	          <%= link_to "ContractON LOGO", '#', id: "logo" %>
+		  <%= link_to image_tag("logo.png", :size => "50x50", :alt => "ContractON"), root_path %>
 	          <nav>
 	            <ul class="nav pull-right">
 	              <li><%= link_to "Home",    root_path %></li>
@@ -36,11 +36,9 @@
 			      <%=link_to "Sign out", csignout_path, method: "delete" %>
 			      </li>
 		              </ul>
-		              </li>
 	      	<% else %>
-		      <li><%= " Sign in "%> <%= link_to"Company", csignin_path %><%=link_to "contractor", '#' %></li>
+		      <li><%= link_to "Sign in", '#' %> </li>
 	      	<% end %>
-
 
 	            </ul>
 	          </nav>
