@@ -14,3 +14,10 @@
 .center{
 	text-align: center;
 }
+
+.relative{
+
+  position: relative;
+  padding-top: 60px;
+  margin-bottom: 0px;
+}

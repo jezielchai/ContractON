@@ -11,6 +11,9 @@ end
     @title = @contractor.email
    end
 
+   def relationship
+   end
+
   # GET /contractors/new
   # GET /contractors/new.json
   def new
