@@ -7,7 +7,7 @@ class CompaniesController < ApplicationController
 	  @company = Company.new(params[:company])
         if @company.save
 		sign_in @company
-		flash[:success] = "Welcome to the ContractON!"
+		flash[:success] = "Welcome to ContractON!"
 	  redirect_to @company
 	else
 		render 'new'
