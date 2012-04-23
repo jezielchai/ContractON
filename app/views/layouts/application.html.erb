@@ -36,9 +36,9 @@
 			      <%=link_to "Sign out", csignout_path, method: "delete" %>
 			      </li>
 		              </ul>
-		              </li>
-	      	<% else %>
-		      <li><%= " Sign in "%> <%= link_to"Company", csignin_path %><%=link_to "contractor", '#' %></li>
+		             </li>
+                    <% else %>
+		      <li><%= link_to "Sign in", '#' %></li>
 	      	<% end %>
 
 
