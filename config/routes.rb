@@ -2,7 +2,7 @@ ContractON::Application.routes.draw do
   root :to => 'static_pages#home'
   resources :companies
   resources :sessions, only: [:new, :create, :destroy]
- 
+  resources :contractor_sessions, only: [:new, :create, :destroy] 
   get "contractors/relationship"
 
   get "static_pages/home"
@@ -18,14 +18,14 @@ ContractON::Application.routes.draw do
   match '/cshow', to: 'company#show'
   match '/csignin', to: 'sessions#new'
   match '/csignout', to: 'sessions#destroy', via: :delete
-  
+  match '/index', to: 'companies#index'
   match '/search', to: 'companies#search'
   get "static_pages/home"
 
   resources :companies
   get "contractors/signup" 
   get "company/signup"
-
+  match '/signin', to: 'contractor_sessions#new'
 
   #match '/signup', to: 'company#signup'
   #match '/show', to: 'company#show'

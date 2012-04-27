@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include SessionsHelper
+  include ContractorSessionsHelper
  # helper_method :current_company
  # before_filter :require_company
   #@current_company

@@ -10,14 +10,25 @@
 	<tr>
 		<th>Name</th>
 		<th>Industry</th>
-	
+		<th>Contracts available now</th>
+		<th>Contact Information</th>
+		<% if signed_in? %>
+			<th>Password</th>
+			<th>supervisor</th>
+		        
+		<% end%>
 		
        </tr>
 
        <tr> 
                 <td><%= @Company.name %></td>
 		<td><%= @Company.industry %></td>
-		
+		<td>None</td>
+		<td>None</td>
+		<% if signed_in? %>
+			<td><%=@Company.password %></td>
+			<td>None</td>
+		<%end%>	
 		
 
 	</tr>
