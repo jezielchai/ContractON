@@ -5,8 +5,7 @@ class Company < ActiveRecord::Base
   
   def self.search(search)
     if search
-    search_condition = "%" + search + "%"
-    find(:all, :conditions => ['title LIKE ? OR description LIKE ?', search_condition, search_condition])
+   find(:all, :conditions => ['first_name LIKE ? || last_name LIKE ?', "%#{search}%", "%#{search}%"])
     else
      find(:all)
   end
