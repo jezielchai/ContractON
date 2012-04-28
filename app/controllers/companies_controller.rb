@@ -21,11 +21,12 @@ class CompaniesController < ApplicationController
   def search
     # @Contractor = Contractor.find(params[:search])    
     # @Contractor = Contractor.all :conditions => {:profession => params[:profession]}
-	 @companies = Company.search(params[:search])
-	 redirect_to @companies
+	 @companies = Contractor.search(params[:search])
+	 
+	 
   end
   def index
-	   @Company =Company.find(params[:search])
+	   @company =Contractor.find_by_firstName(params[:search])
   end
 end
 

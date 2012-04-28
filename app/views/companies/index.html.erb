@@ -1,25 +1,41 @@
-<div class= "hero-unit">
-<h1>Company signup</h1>
-<h2>This is page for company signup</h2>
+<h1>Search Result Page</h1>
+<h2>This is page for Searching Result</h2>
 <div class="row">
+	<p>	<img src='#' alt="Your picture></p>	
 	<div class="span6 offset3">
-		<%=form_for(@company) do |c| %>
+		
+	<table border="1">
+	<form action="#">
+        
+	<tr>
+		<th>FirstName</th>
+		<th>LastName</th>
+		<th>Contracts available now</th>
+		<th>Contact Information</th>
+		<% if signed_in? %>
+			<th>Password</th>
+			<th>supervisor</th>
+		        
+		<% end%>
+		
+       </tr>
 
-			<%=c.label :name %>
-			<%=c.text_field :name %>
+       <tr> 
+                <td><%= @company.firstName %></td>
+		<td><%= @company.lastName %></td>
+		<td>None</td>
+		<td>None</td>
+		<% if signed_in? %>
+			<td><%=@company.password %></td>
+			<td>None</td>
+		<%end%>	
+		
 
-			<%=c.label :industry %>
-			<%=c.text_field :industry %>
+	</tr>
 
-			<%=c.label :password %>
-			<%=c.password_field :password %>
-
-			<%=c.label :password_confirmation, "Confirmation" %>
-			<%=c.password_field :password_confirmation %>
-
-			<%=c.submit "Create your account", class: "btn btn-large btn-primary" %>
-		<% end %>
+    
+</table>
 	</div>
-</div>
-</div>
+	
 
+</div>
