@@ -9,6 +9,14 @@ class Contractor < ActiveRecord::Base
   validates :profession, presence: true
 
   before_save :create_remember_token
+  
+ def self.search(search)
+    if search
+       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+       find(:all)
+    end
+ end 
 
   private
   def create_remember_token
