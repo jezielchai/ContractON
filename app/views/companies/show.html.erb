@@ -37,6 +37,9 @@
 	<% if signed_in? %>
 		<%= link_to "Search", csearch_path, class: "btn btn-large btn-primary" %>
 	<% end %>
+	<% if csigned_in? %>
+		<%= link_to "Back", search_path, class: "btn" %>
+	<% end %>
 
 </div>
 

@@ -45,11 +45,11 @@ class CompaniesController < ApplicationController
 	   end
 	 if keyward == '2'
 	  @company = Contractor.location_search(params[:search])
-	  flash.now[:error] = 'Search Contractors by Name'
+	  flash.now[:error] = 'Search Contractors by Location'
 	   end  
 	if keyward == '4'
 	  @company = Contractor.contractlength_search(params[:search])
-	  flash.now[:error] = 'Search Contractors by Name'
+	  flash.now[:error] = 'Search Contractors by Contractlenghtn'
 	   end  
   end
 

@@ -4,7 +4,7 @@ module ContractorSessionsHelper
 		cookies.permanent[:remember_token] = contractor.remember_token
 		current_contractor = contractor
 	end
-	def signed_in?
+	def csigned_in?
 		!current_contractor.nil?
 	end
 	def current_contractor= (contractor)
