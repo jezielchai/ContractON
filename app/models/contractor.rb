@@ -10,12 +10,27 @@ class Contractor < ActiveRecord::Base
 
   before_save :create_remember_token
   
- def self.search(search)
+ def self.profession_search(search)
+	 search_condition = "%#{search}%"
+	 
     if search
-       find(:all, :conditions => ['firstName LIKE ?', "%#{search}%"])
+       find(:all, :conditions => ['profession LIKE ?', search_condition])
     else
        find(:all)
     end
+	
+
+ end 
+  def self.name_search(search)
+	 search_condition = "%#{search}%"
+	 
+    if search
+       find(:all, :conditions => ['lastName || firstName LIKE ?', search_condition])
+    else
+       find(:all)
+    end
+	
+
  end 
 
   private
