@@ -1,11 +1,27 @@
-<div class="hero-unit" >
-
+<div class="relative">
+	
+		<div class="hero-unit" >
+			<div class="span6 offset3">
+				<h1>                     Search Page</h1>
+			</div>
 <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="span6 offset3">
 <%= form_tag companies_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
      
      <%= submit_tag "Search", :name => nil %>
-  </p>
+     </p>
+     <li> Now you can only search by contractor's firstname </li>
 <% end %>
+
+</div>
+</div>
+
 </div>

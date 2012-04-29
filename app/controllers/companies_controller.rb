@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
 	 
   end
   def index
-	   @company =Contractor.find_by_firstName(params[:search])
+	   @company =Contractor.search(params[:search])
   end
 end
 

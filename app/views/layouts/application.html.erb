@@ -10,7 +10,8 @@
   <![endif]-->
 </head>
 	<body>
-	  <header class="navbar navbar-fixed-top">
+		<header class="navbar navbar-fixed-top">
+		
 	  <div class="navbar-inner">
 		  <%flash.each do |key, value| %>
 			  <div class="alert alert-<%= key %>"><%= value %></div>
@@ -47,6 +48,7 @@
 	  </header>
       <div class="container">
 		<%= yield %>
-	  </div>
+	</div>
+
 	</body>
 </html>
