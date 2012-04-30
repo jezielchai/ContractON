@@ -15,9 +15,11 @@
 		  <%flash.each do |key, value| %>
 			  <div class="alert alert-<%= key %>"><%= value %></div>
 		  <% end %>
-	        <div class="container">
-		  <%= link_to image_tag("logo.png", :size => "50x50", :alt => "ContractON"), root_path %>
-	          <nav>
+	           <div class="container">
+	          	<nav>
+	          		<b style = "font-size: 20px;">
+	          			<%= link_to "ContractON", root_path %>
+	          		</b>
 	            <ul class="nav pull-right">
 	              <li><%= link_to "Home",    root_path %></li>
 		      	  <li><%= link_to "Help",    '#' %></li>

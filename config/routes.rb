@@ -27,9 +27,6 @@ ContractON::Application.routes.draw do
   get "company/signup"
   match '/signin', to: 'contractor_sessions#new'
 
-  #match '/signup', to: 'company#signup'
-  #match '/show', to: 'company#show'
-
   match '/signup', to: 'company#signup'
   match '/show', to: 'company#show'
 
