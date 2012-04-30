@@ -12,14 +12,13 @@
 <br/>
 <br/>
 <div class="span6 offset3">
-<%= form_tag companies_path, :method => 'get' do %>
+<%= form_tag contractors_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-     <%= select_tag("keywards", options_for_select([['Name', '1'],['Geographic Location', '2'],['Profession','3'],['Contract Length','4'], ])) %>
+     <%= select_tag("keywards", options_for_select([['Name', '1'],['Industy', '2']])) %>
      <%= submit_tag "Search", :name => nil %>
      </p>
-     <b> <li> Now you can only search by contractor's Name or Profession </li></b>
-     <b> <li> Blank means search all </li></b>
+     <b> <li> Blank means search all </li></b> 
 <% end %>
 
 </div>

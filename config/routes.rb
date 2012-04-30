@@ -19,13 +19,19 @@ ContractON::Application.routes.draw do
   match '/csignin', to: 'sessions#new'
   match '/csignout', to: 'sessions#destroy', via: :delete
   match '/index', to: 'companies#index'
-  match '/search', to: 'companies#search'
+  #match '/search', to: 'companies#search'
   get "static_pages/home"
-
+  match '/csearch', to: 'companies#search'
   resources :companies
   get "contractors/signup" 
   get "company/signup"
   match '/signin', to: 'contractor_sessions#new'
+<<<<<<< HEAD
+=======
+  match '/search', to: 'contractors#search'
+  #match '/signup', to: 'company#signup'
+  #match '/show', to: 'company#show'
+>>>>>>> c028926858048dbba79782f0ca0abea55970d01d
 
   match '/signup', to: 'company#signup'
   match '/show', to: 'company#show'

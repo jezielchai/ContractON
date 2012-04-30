@@ -9,12 +9,27 @@ class Company < ActiveRecord::Base
 
   before_save :create_remember_token
   
-  def self.search(search)
+ def self.industry_search(search)
+	 search_condition = "%#{search}%"
+	 
     if search
-       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+       find(:all, :conditions => ['industry LIKE ?', search_condition])
     else
        find(:all)
     end
+	
+
+ end 
+  def self.name_search(search)
+	 search_condition = "%#{search}%"
+	 
+    if search
+       find(:all, :conditions => ['name LIKE ?', search_condition])
+    else
+       find(:all)
+    end
+	
+
  end 
 
   private 

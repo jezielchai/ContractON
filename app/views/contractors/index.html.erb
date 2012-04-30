@@ -9,20 +9,19 @@
 	<form action="#">
         
 	<tr>
-		<th>FirstName</th>
-		<th>LastName</th>
-		<th>Email Address</th>
-		<th>Profession</th>
+		<th>Name</th>
+	
+		<th>Industry</th>
+	
 	
 		
        </tr>
 <% @company.each do |c| %>
        <tr>
 	       
-                <td><%= c.firstName %></td>
-		<td><%= c.lastName %></td>
-		<td><%= c.email%></td>
-		<td><%= c.profession %> </td>
+                <td><%= c.name %></td>
+		<td><%= c.industry %></td>
+	
 		
 		
                <td><%=link_to "enter the profile", c%>
@@ -31,7 +30,7 @@
  <% end %>
     
 </table>
-<%=link_to "Back", csearch_path, class: "btn" %>
+<%=link_to "Back", search_path, class: "btn" %>
 	</div>
 	
 

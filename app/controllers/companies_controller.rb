@@ -21,12 +21,36 @@ class CompaniesController < ApplicationController
   def search
     # @Contractor = Contractor.find(params[:search])    
     # @Contractor = Contractor.all :conditions => {:profession => params[:profession]}
-	 @companies = Contractor.search(params[:search])
+           keyward = params[:keywards]
+	   if keyward == '3'
+	  @companies = Contractor.profession_search(params[:search])
+	   
+	   end
 	 
-	 
+	    if keyward =='1'
+	  @companies = Contractor.name_search(params[:search])
+	    end
   end
-  def index
-	   @company =Contractor.find_by_firstName(params[:search])
-  end
-end
 
+  def index
+         keyward = params[:keywards]
+       
+         if keyward == '3'
+	  @company = Contractor.profession_search(params[:search])
+	  flash.now[:error] = 'Search Contractors by Profession'
+	   end
+	 if keyward == '1'
+	  @company = Contractor.name_search(params[:search])
+	  flash.now[:error] = 'Search Contractors by Name'
+	   end
+	 if keyward == '2'
+	  @company = Contractor.location_search(params[:search])
+	  flash.now[:error] = 'Search Contractors by Location'
+	   end  
+	if keyward == '4'
+	  @company = Contractor.contractlength_search(params[:search])
+	  flash.now[:error] = 'Search Contractors by Contractlenghtn'
+	   end  
+  end
+
+end
