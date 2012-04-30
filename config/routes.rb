@@ -26,12 +26,9 @@ ContractON::Application.routes.draw do
   get "contractors/signup" 
   get "company/signup"
   match '/signin', to: 'contractor_sessions#new'
-<<<<<<< HEAD
-=======
+
   match '/search', to: 'contractors#search'
-  #match '/signup', to: 'company#signup'
-  #match '/show', to: 'company#show'
->>>>>>> c028926858048dbba79782f0ca0abea55970d01d
+
 
   match '/signup', to: 'company#signup'
   match '/show', to: 'company#show'
