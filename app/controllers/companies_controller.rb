@@ -34,7 +34,7 @@ def edit
   end
 
   def search
-        @companies = Company.all
+        @contractors = Contractor.all
 
            keyward = params[:keywards]
 	   if keyward == '3'

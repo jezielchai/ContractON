@@ -19,9 +19,9 @@
 <h2>All Contractors</h2>
 
 <ul class="companies">
-  <% @companies.each do |company| %>
+  <% @contractors.each do |c| %>
     <li>
-      <%= link_to company.name, company %>
+      <%= link_to c.lastName, c %>
     </li>
   <% end %>
 </ul>
