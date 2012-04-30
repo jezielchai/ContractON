@@ -23,6 +23,22 @@ end
         render 'signup'
    end
  end
+   
+   def edit
+    @contractor = Contractor.find(params[:id])
+   end
+  
+   def update
+    @contractor = Contractor.find(params[:id])
+    if @contractor.update_attributes(params[:user])
+      flash[:success] = "Profile updated"
+      sign_in @contractor
+      redirect_to @contractor
+    else
+      render 'edit'
+    end
+  end
+
    def search
 	   keyward = params[:keywards]
        
@@ -34,7 +50,9 @@ end
 	  @company = Company.industry_search(params[:search])
 	  flash.now[:error] = 'Search Companies by Industry'
 	   end  
-   end
+	 
+	 @companies = Company.all 
+  end
 
    def index
          keyward = params[:keywards]

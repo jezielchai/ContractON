@@ -4,7 +4,7 @@ class Contractor < ActiveRecord::Base
 
   validates :firstName, presence: true, length: { maximum:50 }
   validates :lastName, presence: true, length: { maximum:50 }
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :password, :on=> :create, length: { minimum: 6 }
   validates :profession, presence: true
 

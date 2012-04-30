@@ -1,27 +1,29 @@
-<div class="relative">
-	
+<div class="relative">	
 		<div class="hero-unit" >
 			<div class="span6 offset3">
-				<h1>                     Search Page</h1>
+				<h2>Search Page</h2>
 			</div>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 <br/>
 <br/>
 <div class="span6 offset3">
 <%= form_tag contractors_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
+     <%= text_field_tag :search, params[:search] %>
      <%= select_tag("keywards", options_for_select([['Name', '1'],['Industy', '2']])) %>
      <%= submit_tag "Search", :name => nil %>
-     </p>
-     <b> <li> Blank means search all </li></b> 
 <% end %>
 
-</div>
+<%= provide(:title, 'All companies') %>
+<h2>All companies</h2>
+
+<ul class="companies">
+  <% @companies.each do |c| %>
+    <li>
+      <%= link_to c.name, c %>
+    </li>
+  <% end %>
+</ul>
 </div>
 
+</div>
+<br />
 </div>

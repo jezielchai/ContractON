@@ -1,12 +1,15 @@
+<div class="hero-unit">
+<h2>Company Profile</h2>
+<div class="row">
+	<p>	<img src='#' alt="Your picture"></p>	
 <div class="relative">
 <h1>Company Profile</h1>
-<h2>This is page for company Profile</h2>
 
-		<img src='#' alt="Your picture> 	
+<h2>This is page for company profile</h2>
+
+		<img src='#' alt="Your picture"> 	
 	<div class="span6 offset3">
 		
-
-
 		<p>
 		<b>Name:</b>
                 <%=@Company.name %>
@@ -35,12 +38,13 @@
 
 	</div>
 	<% if signed_in? %>
-		<%= link_to "Search", csearch_path, class: "btn btn-large btn-primary" %>
+		<%= link_to "Search", companies_search_path, class: "btn btn-large btn-primary" %>
 	<% end %>
 	<% if csigned_in? %>
-		<%= link_to "Back", search_path, class: "btn" %>
+		<%= link_to "Back", contractors_search_path, class: "btn" %>
 	<% end %>
 
+</div>
 </div>
 
 

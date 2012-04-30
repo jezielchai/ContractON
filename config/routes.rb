@@ -1,38 +1,35 @@
 ContractON::Application.routes.draw do
+ 
   root :to => 'static_pages#home'
+ 
+  # RESOURCES
   resources :companies
+  resources :contractors
+  resources :profiles
   resources :sessions, only: [:new, :create, :destroy]
   resources :contractor_sessions, only: [:new, :create, :destroy] 
+ 
+  # GETS
   get "contractors/relationship"
-
   get "static_pages/home"
-
-  resources :contractors
-  match '/signup', to: 'contractors#signup'
-
-
   get "contractors/signup" 
   get "company/signup"
-  match '/csishow', to: 'sessions#show'
-  match '/csignup', to: 'company#signup'
-  match '/cshow', to: 'company#show'
-  match '/csignin', to: 'sessions#new'
-  match '/csignout', to: 'sessions#destroy', via: :delete
+  get "static_pages/home"
+  get "static_pages/help"
+
+  # URLS
   match '/index', to: 'companies#index'
-  #match '/search', to: 'companies#search'
-  get "static_pages/home"
-  match '/csearch', to: 'companies#search'
-  resources :companies
-  get "contractors/signup" 
-  get "company/signup"
-  match '/signin', to: 'contractor_sessions#new'
-  match '/search', to: 'contractors#search'
-  #match '/signup', to: 'company#signup'
-  #match '/show', to: 'company#show'
-
-  match '/signup', to: 'company#signup'
-  match '/show', to: 'company#show'
-
+  match '/help', to: 'static_pages#help'
+  match '/contractors_signup', to: 'contractors#signup'
+  match '/companies_show', to: 'sessions#show'
+  match '/companies_signup', to: 'companies#signup'
+  match '/companies', to: 'companies#show'
+  match '/companies_signin', to: 'sessions#new'
+  match '/companies_signout', to: 'sessions#destroy', via: :delete
+  match '/contractors_signin', to: 'contractor_sessions#new'
+  match '/contractors_signout', to: 'contractor_sessions#destroy'
+  match 'companies_search', to: 'companies#search'
+  match 'contractors_search', to: 'contractors#search'
 
 
   # The priority is based upon order of creation:

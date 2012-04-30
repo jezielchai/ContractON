@@ -1,8 +1,7 @@
+<div class ="hero-unit" >
 <h2>Complete your profile</h2>
 
-<%= form_for(profile, html: { multipart:true } ) do |f| %>
- 
-
+<%= form_for(profile, html: { multipart:true } ) do |f| %> 
  <div class="field">
     <%= f.label :address %>
     <%= f.text_field :address %>
@@ -28,3 +27,4 @@
     <%= f.submit signup_message %>
   </div>
 <% end %>
+</div>

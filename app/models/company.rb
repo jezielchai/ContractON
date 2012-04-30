@@ -1,5 +1,11 @@
 class Company < ActiveRecord::Base
   attr_accessible :industry, :name, :password
+  has_secure_password
+
+  validates :name, presence: true, length: { maximum:50 }
+  validates :industry, presence: true, length: { maximum:50 }
+  validates :password, :on=> :create, length: { minimum: 6 }
+
 
   before_save :create_remember_token
   
@@ -7,13 +13,13 @@ class Company < ActiveRecord::Base
 	 search_condition = "%#{search}%"
 	 
     if search
+
        find(:all, :conditions => ['industry LIKE ?', search_condition])
     else
        find(:all)
     end
+   end
 	
-
- end 
   def self.name_search(search)
 	 search_condition = "%#{search}%"
 	 
@@ -22,8 +28,6 @@ class Company < ActiveRecord::Base
     else
        find(:all)
     end
-	
-
  end 
 
   private 
