@@ -31,7 +31,7 @@
 				</li> ] -->
 				<% if signed_in? %>
 					<li><%= link_to "Account", current_company %></li>
-					<ul class="dropdown-menu">
+					
 
 			                <li><%= link_to "Profile", current_company %></li>
 			                <li><%=link_to "Settings", '#'%></li>
@@ -39,7 +39,7 @@
 			                <li>
 			                 <%=link_to "Sign out", csignout_path, method: "delete" %>
 			                </li>
-		                        </ul>
+		                       
 				<% end %>
                                 <% if csigned_in? %>
                                           <li><%= link_to "Account", current_contractor %></li>
