@@ -8,27 +8,13 @@
 	<table border="1">
 	<form action="#">
         
-	<tr>
-		<th>First Name</th>
-		<th>Last Name</th>
-		<th>Contracts available now</th>
-		<th>Contact Information</th>
-		<% if signed_in? %>
-			<th>Password</th>
-			<th>supervisor</th>
-		<% end%>
-       </tr>
-       <tr> 
-                <td>None</td>
-		<td>None</td>
-		<td>None</td>
-		<td>None</td>
+	
 		<% if signed_in? %>
 			<td><%=@company.password %></td>
 			<td>None</td>
 		<% end%>	
 
-	</tr>
+	
 		<th>FirstName</th>
 		<th>LastName</th>
 		<th>Email Address</th>
@@ -51,7 +37,7 @@
  <% end %>
     
 </table>
-<%=link_to "Back", csearch_path, class: "btn" %>
+<%=link_to "Back", companies_search_path, class: "btn" %>
 	</div>
 </div>
 </div>

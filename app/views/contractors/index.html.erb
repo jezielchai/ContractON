@@ -10,10 +10,20 @@
 		<th>Name</th>
 		<th>Industry</th>
        </tr>
+        <% @company.each do |c| %>
+       <tr>
+	       
+                <td><%= c.name %></td>
+		<td><%= c.industry %></td>
+	
+		
+		
+               <td><%=link_to "enter the profile", c%>
 
-    
+	</tr>      
+        <% end %>
 </table>
-<%=link_to "Back", search_path, class: "btn" %>
+<%=link_to "Back", contractors_search_path, class: "btn" %>
 	</div>
 	
 

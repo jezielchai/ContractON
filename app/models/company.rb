@@ -13,10 +13,7 @@ class Company < ActiveRecord::Base
 	 search_condition = "%#{search}%"
 	 
     if search
-   find(:all, :conditions => ['first_name LIKE ? || last_name LIKE ?', "%#{search}%", "%#{search}%"])
-    else
-     find(:all)
-  end
+
        find(:all, :conditions => ['industry LIKE ?', search_condition])
     else
        find(:all)
@@ -38,4 +35,4 @@ class Company < ActiveRecord::Base
     def create_remember_token
 	    self.remember_token = SecureRandom.urlsafe_base64
     end
-
+end

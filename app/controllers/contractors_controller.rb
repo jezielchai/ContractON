@@ -51,20 +51,20 @@ end
 	  flash.now[:error] = 'Search Companies by Industry'
 	   end  
 	 
-	 @contractors = Contractor.all 
+	 @companies = Company.all 
   end
 
    def index
          keyward = params[:keywards]
        
-	# if keyward == '1'
-	#  @company = Company.name_search(params[:search])
-	#  flash.now[:error] = 'Search Companies by Name'
-	#   end
-	# if keyward == '2'
-	#  @company = Company.industry_search(params[:search])
-	#  flash.now[:error] = 'Search Companies by Industry'
-	#   end  
+	 if keyward == '1'
+	  @company = Company.name_search(params[:search])
+	  flash.now[:error] = 'Search Companies by Name'
+	   end
+	 if keyward == '2'
+	  @company = Company.industry_search(params[:search])
+	  flash.now[:error] = 'Search Companies by Industry'
+	   end  
 
    end
 
