@@ -20,13 +20,14 @@ ContractON::Application.routes.draw do
   # URLS
   match '/index', to: 'companies#index'
   match '/help', to: 'static_pages#help'
-  match '/contracotrs_signup', to: 'contractors#signup'
+  match '/contractors_signup', to: 'contractors#signup'
   match '/companies_show', to: 'sessions#show'
   match '/companies_signup', to: 'companies#signup'
   match '/companies', to: 'companies#show'
   match '/companies_signin', to: 'sessions#new'
   match '/companies_signout', to: 'sessions#destroy', via: :delete
   match '/contractors_signin', to: 'contractor_sessions#new'
+  match '/contractors_signout', to: 'contractor_sessions#destroy'
   match 'companies_search', to: 'companies#search'
   match 'contractors_search', to: 'contractors#search'
 
