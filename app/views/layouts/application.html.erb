@@ -10,57 +10,51 @@
   <![endif]-->
 </head>
 	<body>
-		<header class="navbar navbar-fixed-top">
-		
+		<header class="navbar navbar-fixed-top">		
 	  <div class="navbar-inner">
 		  <%flash.each do |key, value| %>
 			  <div class="alert alert-<%= key %>"><%= value %></div>
 		  <% end %>
-
 	           <div class="container">
 	          	<nav>
 	          		<b style = "font-size: 20px;">
 	          			<%= link_to "ContractON", root_path %>
 	          		</b>
-	          		
+	     
 
 	            <ul class="nav pull-right">
-	              <li><%= link_to "Home",    root_path %></li>
+	                  <li><%= link_to "Home",    root_path %></li>
 		      	  <li><%= link_to "Help",    '#' %></li>
-		    <% if signed_in? or csigned_in? %>
-			      <li><%= link_to "Companies", '#' %></li>
-			     <!--comment[ <li id ="fat-medu" class="dropdown">
-
-			        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account </a>  
-				</li> ] -->
-				<% if signed_in? %>
-					<li><%= link_to "Account", current_company %></li>
+		    <% if signed_in? %>
+			  <li><%= link_to "Search", search_path %></li>
+		          <li id ="fat-menu" class="dropdown">
+			        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account<b class="caret"></b> </a>  
 					<ul class="dropdown-menu">
-
 			                <li><%= link_to "Profile", current_company %></li>
 			                <li><%=link_to "Settings", '#'%></li>
 			                <li class="divider"></li>
-			                <li>
-			                 <%=link_to "Sign out", csignout_path, method: "delete" %>
-			                </li>
+			                <li><%=link_to "Sign out", csignout_path, method: "delete" %></li>
 		                        </ul>
+					</li>
 				<% end %>
-                                <% if csigned_in? %>
-                                          <li><%= link_to "Account", current_contractor %></li>
-			                   <ul class="dropdown-menu">
 
+                     <% if csigned_in? %>
+		         <li><%= link_to "Companies", '#' %></li>
+			  <li><%= link_to "Search", csearch_path %></li>
+			  <li id ="fat-menu" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account<b class="caret"></b> </a>
+                                         <ul class="dropdown-menu">
 			                  <li><%= link_to "Profile", current_contractor %></li>
 			                  <li><%=link_to "Settings", '#'%></li>
 			                  <li class="divider"></li>
-			                  <li>
-			                    <%=link_to "Sign out", csignout_path, method: "delete" %>
-			                 </li>
-				            </ul>
-			        <% end %>
+			                  <li><%=link_to "Sign out", csignout_path, method: "delete" %></li>
+				          </ul>
+				          </li>
+
 	      	<% else %>
 		      <li><%= link_to "Sign in", '#' %> </li>
 	      	<% end %>
-
+	
 	            </ul>
 		    </nav>
 	   
@@ -69,7 +63,6 @@
 	  </header>
       <div class="container">
 		<%= yield %>
-	</div>
-
+      </div>
 	</body>
 </html>

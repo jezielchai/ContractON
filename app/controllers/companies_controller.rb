@@ -18,12 +18,23 @@ class CompaniesController < ApplicationController
 	  @Company =Company.find(params[:id])
   end
 
+def edit
+    @company = Company.find(params[:id])
+   end
+
+   def update
+    @company = Company.find(params[:id])
+    if @company.update_attributes(params[:user])
+      flash[:success] = "Profile updated"
+      sign_in @company
+      redirect_to @company
+    else
+      render 'edit'
+    end
+  end
+
   def search
-     @Company = Company.search(params[:search])    
-    # @Contractor = Contractor.all :conditions => {:profession => params[:profession]}
-    # @Contractor = Contractor.find(params[:search])    
-    # @Contractor = Contractor.all :conditions => {:profession => params[:profession]}
-     @companies = Company.all
+        @companies = Company.all
 
            keyward = params[:keywards]
 	   if keyward == '3'
