@@ -4,8 +4,19 @@
 <%= form_tag companies_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-#    <%= select_tag :profession, options_for_select([['Engineer','engineer'], ['Architect','architect'], ['Scientist','scientist']]), :onchange => "this.form.submit();" %>   
+    <%= select_tag :profession, options_for_select([['Engineer','engineer'], ['Architect','architect'], ['Scientist','scientist']]), :onchange => "this.form.submit();" %>   
      <%= submit_tag "Search", :name => nil %>
   </p>
  <% end %> 
 
+<%= provide(:title, 'All users') %>
+<h2>All Contractors</h2>
+
+<ul class="companies">
+  <% @companies.each do |company| %>
+    <li>
+    
+      <%= link_to company.name, company %>
+    </li>
+  <% end %>
+</ul>

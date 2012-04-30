@@ -1,41 +1,33 @@
 <h1>Search Result Page</h1>
 <h2>This is page for Searching Result</h2>
 <div class="row">
-	<p>	<img src='#' alt="Your picture></p>	
+	<p>	<img src='#' alt="Your picture"></p>	
 	<div class="span6 offset3">
 		
 	<table border="1">
 	<form action="#">
         
 	<tr>
-		<th>FirstName</th>
-		<th>LastName</th>
+		<th>First Name</th>
+		<th>Last Name</th>
 		<th>Contracts available now</th>
 		<th>Contact Information</th>
 		<% if signed_in? %>
 			<th>Password</th>
 			<th>supervisor</th>
-		        
 		<% end%>
-		
        </tr>
-
        <tr> 
-                <td><%= @company.firstName %></td>
-		<td><%= @company.lastName %></td>
+                <td>None</td>
+		<td>None</td>
 		<td>None</td>
 		<td>None</td>
 		<% if signed_in? %>
 			<td><%=@company.password %></td>
 			<td>None</td>
 		<%end%>	
-		
 
 	</tr>
-
-    
 </table>
 	</div>
-	
-
 </div>
