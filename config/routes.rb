@@ -16,11 +16,16 @@ ContractON::Application.routes.draw do
   match '/csignin', to: 'sessions#new'
   match '/csignout', to: 'sessions#destroy', via: :delete
   match '/index', to: 'companies#index'
-  match '/search', to: 'companies#search'
 
   get "contractors/signup" 
   get "company/signup"
   match '/signin', to: 'contractor_sessions#new'
+  get "static_pages/home"
+  match '/csearch', to: 'companies#search'
+  match '/search', to: 'contractors#search'
+  match '/signup', to: 'company#signup'
+  match '/show', to: 'company#show'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

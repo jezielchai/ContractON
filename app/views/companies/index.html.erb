@@ -1,3 +1,4 @@
+<div class="relative">
 <h1>Search Result Page</h1>
 <h2>This is page for Searching Result</h2>
 <div class="row">
@@ -25,9 +26,32 @@
 		<% if signed_in? %>
 			<td><%=@company.password %></td>
 			<td>None</td>
-		<%end%>	
+		<% end%>	
 
 	</tr>
+		<th>FirstName</th>
+		<th>LastName</th>
+		<th>Email Address</th>
+		<th>Profession</th>
+	
+		
+       </tr>
+<% @company.each do |c| %>
+       <tr>
+	       
+                <td><%= c.firstName %></td>
+		<td><%= c.lastName %></td>
+		<td><%= c.email%></td>
+		<td><%= c.profession %> </td>
+		
+		
+               <td><%=link_to "enter the profile", c%>
+
+	</tr>
+ <% end %>
+    
 </table>
+<%=link_to "Back", csearch_path, class: "btn" %>
 	</div>
+</div>
 </div>
