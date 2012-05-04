@@ -18,7 +18,7 @@ end
       if @contractor.save
         sign_in @contractor
         flash[:success] = "Welcome to ContractON!"
-        redirect_to root_path
+        redirect_to controller: "contractor_profiles", action: "new"
       else
         render 'signup'
    end

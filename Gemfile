@@ -18,6 +18,8 @@ group :development do
  gem 'guard-rspec', '0.5.5'
 end
 
+# for State code abbreviations
+gem 'carmen'
 
 # Gems used only for assets and not required
 # in production environments by default.
