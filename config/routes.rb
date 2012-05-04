@@ -1,5 +1,7 @@
 ContractON::Application.routes.draw do
  
+  resources :contractor_profiles
+
   root :to => 'static_pages#home'
  
   # RESOURCES

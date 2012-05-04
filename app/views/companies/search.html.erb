@@ -21,10 +21,11 @@
 <ul class="companies">
   <% @contractors.each do |c| %>
     <li>
-      <%= link_to c.lastName, c %>
+      <%= link_to c.firstName + ' ' +  c.lastName, c %>
     </li>
   <% end %>
 </ul>
+
 
 </div>
 </div>

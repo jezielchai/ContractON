@@ -8,17 +8,19 @@ namespace :db do
                  password: "foobar")
 
     19.times do |n|
-      firstName = "First Name"
-      lastName = "Last Name"
+      firstName = Faker::Name.first_name
+      lastName =  Faker::Name.last_name
       email = "example-#{n+1}@railstutorial.org"
       profession = "profession"
       password  = "password"
 
       Contractor.create!(firstName: firstName,
-      		   lastName: lastName,
+                   lastName: lastName,
                    email: email,
 		   profession: profession,
                    password: password)
     end
+
+
   end
 end

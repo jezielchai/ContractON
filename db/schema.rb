@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429225713) do
+ActiveRecord::Schema.define(:version => 20120504163043) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,27 @@ ActiveRecord::Schema.define(:version => 20120429225713) do
   end
 
   add_index "companies", ["remember_token"], :name => "index_companies_on_remember_token"
+
+  create_table "contractor_profiles", :force => true do |t|
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "school"
+    t.string   "major"
+    t.string   "degree"
+    t.string   "license"
+    t.text     "skills"
+    t.text     "interests"
+    t.string   "website"
+    t.string   "work"
+    t.string   "length"
+    t.integer  "salary"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "contractors", :force => true do |t|
     t.string   "firstName"

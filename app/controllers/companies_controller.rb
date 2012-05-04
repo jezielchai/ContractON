@@ -34,7 +34,7 @@ def edit
   end
 
   def search
-        @contractors = Contractor.all
+        @contractors = Contractor.paginate(page: params[:page])
 
            keyward = params[:keywards]
 	   if keyward == '3'

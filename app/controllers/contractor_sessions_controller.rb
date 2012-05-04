@@ -3,20 +3,18 @@ def new
    end
 
    def create
-	   #current_company()
 	 contractor = Contractor.find_by_firstName(params[:session][:firstName])
 	 #password = Company.find_by_name(params[:session][:name]).password
 	 #company.update_attributes(industy: "TEXT")
 	 #Company.create(name: company.name, industry: "test")
-	 #@company.
-	 # @current_company = @company
-	  # if contractor && contractor.password ==params[:session][:password]
+	  @current_company = @company
+	   if contractor && contractor.password == (params[:session][:password])
 		   sign_in contractor
 		   redirect_to contractor 
-	 # else 
-               #  flash.now[:error] = 'Invalid email/password combination'
-		#  render 'new'
-	  # end
+	   else 
+                  flash.now[:error] = 'Invalid email/password combination'
+		  render 'new'
+	   end
 		 
     end
    #def show

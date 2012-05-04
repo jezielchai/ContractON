@@ -1,0 +1,17 @@
+<%= form_for(@contractor_profile) do |f| %>
+  <% if @contractor_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contractor_profile.errors.count, "error") %> prohibited this contractor_profile from being saved:</h2>
+
+      <ul>
+      <% @contractor_profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

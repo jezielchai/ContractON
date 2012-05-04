@@ -51,7 +51,7 @@ end
 	  flash.now[:error] = 'Search Companies by Industry'
 	   end  
 	 
-	 @companies = Company.all 
+	 @company = Company.paginate(page: params[:page]) 
   end
 
    def index
