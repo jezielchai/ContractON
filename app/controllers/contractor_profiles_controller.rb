@@ -14,6 +14,7 @@ class ContractorProfilesController < ApplicationController
   # GET /contractor_profiles/1.json
   def show
     @contractor_profile = ContractorProfile.find(params[:id])
+    @contractor = @contractor_profile.contractor
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,10 +42,10 @@ class ContractorProfilesController < ApplicationController
   # POST /contractor_profiles.json
   def create
     @contractor_profile = ContractorProfile.new(params[:contractor_profile])
-
+    @contractor_profile.contractor = current_contractor.becomes(Contractor)
     respond_to do |format|
       if @contractor_profile.save
-        format.html { redirect_to @contractor_profile, notice: 'Contractor profile was successfully created.' }
+        format.html { redirect_to @contractor_profile, notice: 'profile was successfully created.', id: current_contractor.id }
         format.json { render json: @contractor_profile, status: :created, location: @contractor_profile }
       else
         format.html { render action: "new" }

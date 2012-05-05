@@ -25,34 +25,21 @@
 
 	            <ul class="nav pull-right">
 	                  <li><%= link_to "Home",    root_path %></li>
-		      	  <li><%= link_to "Help",    help_path  %></li>
 		    <% if signed_in? %>
 			  <li><%= link_to "Search", companies_search_path %></li>
-		          <li id ="fat-menu" class="dropdown">
-			        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account<b class="caret"></b> </a>  
-					<ul class="dropdown-menu">
+	
 			                <li><%= link_to "Profile", current_company %></li>
-			                <li><%=link_to "Settings", '#'%></li>
 			                <li class="divider"></li>
 			                 <li><%=link_to "Sign out", companies_signout_path, method: "delete" %></li>
-					 </ul>
-			                 </li>       
-				<% end %>
+					<% end %>
 
                      <% if csigned_in? %>
 		         <li><%= link_to "Companies", '#' %></li>
 			  <li><%= link_to "Search", contractors_search_path %></li>
-			  <li id ="fat-menu" class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account<b class="caret"></b> </a>
-                                         <ul class="dropdown-menu">
-			                  <li><%= link_to "Profile", current_contractor %></li>
-			                  <li><%=link_to "Settings", '#'%></li>
+        			                  <li><%= link_to "Profile",:controller => "contractor_profiles", :action => "show", :id => @contractor %></li>
 			                  <li class="divider"></li>
 			                  <li><%=link_to "Sign out", contractors_signout_path, method: "delete" %></li>
-				          </ul>
-				          </li>
-
-	      	<% else %>
+		      	<% else %>
 		      <li><%= link_to "Sign in", '#' %> </li>
 	      	<% end %>
 	

@@ -1,0 +1,25 @@
+<div class = "hero-unit" >
+<h3><%= current_contractor.firstName + ' ' + current_contractor.lastName %></h3>
+<h5><%= contractor_profile.profession %></h5>
+<%= image_tag @contractor_profile.avatar.url(:thumb) %>
+</div>
+
+<div class = "hero-unit" >
+<h4>Address:</h4>
+<%= contractor_profile.address %>
+<%= contractor_profile.city %>
+<%= contractor_profile.state %>
+<%= contractor_profile.zipcode %>
+<br />
+<h4>Skills:</h4>
+<p>
+<%= contractor_profile.skills %>
+</p>
+<br />
+<h4>Interests:</h4>
+<p>
+<%= contractor_profile.interests %>
+</p>
+
+</div>
+

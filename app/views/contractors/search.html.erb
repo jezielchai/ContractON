@@ -1,30 +1,30 @@
-<div class="relative">	
-		<div class="hero-unit" >
-			<div class="span6 offset3">
-				<h2>Search Page</h2>
-			</div>
+	<div class="hero-unit" >
+
+				<h2>Contractors Search</h2>
+				<h5>Search for companies that are hiring</h5>
+
 <br/>
-<br/>
-<div class="span6 offset3">
+
 <%= form_tag contractors_path, :method => 'get' do %>
      <%= text_field_tag :search, params[:search] %>
-     <%= select_tag("keywards", options_for_select([['Name', '1'],['Industy', '2']])) %>
-     <%= submit_tag "Search", :name => nil %>
+     <%= select_tag("keywards", options_for_select([['Company Name', '1'],['Industy', '2']])) %>
+     <%= submit_tag "Search", :class=> 'btn btn-large btn-primary', :name => nil %>
 <% end %>
 
-<%= provide(:title, 'All companies') %>
-<h2>All companies</h2>
 
+<%= provide(:title, 'All users') %>
+</div>
 
+<u><h3>All companies</h3></u>
 <ul class="companies">
-  <%= @companies.each do |c| %>
+  <%= @company.each do |c| %>
     <li>
-      <%= link_to c.name, c %>
+ <%= image_tag @contractor_profile.avatar.url(:thumb) %>     
+ <%= link_to c.name, c %>
     </li>
   <% end %>
 </ul>
-</div>
 
-</div>
-<br />
-</div>
+
+
+

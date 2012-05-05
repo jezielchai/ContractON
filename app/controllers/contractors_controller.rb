@@ -17,7 +17,7 @@ end
     @contractor = Contractor.new(params[:contractor])
       if @contractor.save
         sign_in @contractor
-        flash[:success] = "Welcome to ContractON!"
+        flash[:success] = "Please complete your profile" + ' '  + @contractor.firstName
         redirect_to controller: "contractor_profiles", action: "new"
       else
         render 'signup'

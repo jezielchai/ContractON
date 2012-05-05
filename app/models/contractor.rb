@@ -1,12 +1,13 @@
 class Contractor < ActiveRecord::Base
-  attr_accessible :firstName, :lastName, :password, :email, :profession
+has_one :contractor_profiles
+
+  attr_accessible :firstName, :lastName, :password, :email
   has_secure_password
 
   validates :firstName, presence: true, length: { maximum:50 }
   validates :lastName, presence: true, length: { maximum:50 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :password, :on=> :create, length: { minimum: 6 }
-  validates :profession, presence: true
 
   before_save :create_remember_token
   

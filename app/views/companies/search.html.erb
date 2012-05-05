@@ -1,22 +1,22 @@
-<div class="relative">
 	
 		<div class="hero-unit" >
-			<div class="span6 offset3">
-				<h2>Search Page</h2>
-			</div>
-<br/>
-<br/>
-<div class="span6 offset3">
+			<h2>Companies Search</h2>
+			<h5>Search for contractors who need employment</h5>
+
+
+
+
 <%= form_tag companies_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= select_tag("keywards", options_for_select([['Name', '1'],['Geographic Location', '2'],['Profession','3'],['Contract Length','4'], ])) %>
-     <%= submit_tag "Search", :name => nil %>
+     <%= submit_tag "Search", :class=>'btn btn-large btn-primary', :name => nil %>
    </p>
    <% end %>
+</div>
 
 <%= provide(:title, 'All users') %>
-<h2>All Contractors</h2>
+<u><h2>All Contractors</h2></u>
 
 <ul class="companies">
   <% @contractors.each do |c| %>
@@ -26,8 +26,7 @@
   <% end %>
 </ul>
 
-
-</div>
-</div>
+<br />
+<br />
 
 </div>
