@@ -16,6 +16,7 @@ class CompaniesController < ApplicationController
 
   def show
 	  @Company =Company.find(params[:id])
+	  @posting = Posting.all
   end
 
 def edit
