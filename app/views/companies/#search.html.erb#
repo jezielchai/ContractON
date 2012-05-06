@@ -1,9 +1,7 @@
-<div class="hero-unit" >
-<br />
+	
+		<div class="hero-unit" >
 			<h2>Companies Search</h2>
 			<h5>Search for contractors who need employment</h5>
-
-
 
 
 <%= form_tag companies_path, :method => 'get' do %>
@@ -21,7 +19,7 @@
 <ul class="companies">
   <% @contractors.each do |c| %>
     <li>
-  <%= link_to c.firstName + ' ' +  c.lastName, c %>
+      <%= link_to c.firstName + ' ' +  c.lastName, c %>
     </li>
   <% end %>
 </ul>

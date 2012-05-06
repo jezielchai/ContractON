@@ -18,7 +18,7 @@ end
       if @contractor.save
         sign_in @contractor
         flash[:success] = "Please complete your profile" + ' '  + @contractor.firstName
-        redirect_to controller: "contractor_profiles", action: "new"
+        redirect_to controller: "contractor_profiles", action: "new", id:current_contractor.id
       else
         render 'signup'
    end

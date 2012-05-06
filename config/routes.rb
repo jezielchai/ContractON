@@ -1,9 +1,9 @@
 ContractON::Application.routes.draw do
 
-
   root :to => 'static_pages#home'
  
   # RESOURCES
+  resources :postings
   resources :contractor_profiles
   resources :companies
   resources :contractors
@@ -14,7 +14,7 @@ ContractON::Application.routes.draw do
   # GETS
   get "contractors/relationship"
   get "static_pages/home"
-  get "contractors/signup" 
+  get "contractors/signup"
   get "company/signup"
   get "static_pages/home"
   get "static_pages/help"
@@ -25,7 +25,7 @@ ContractON::Application.routes.draw do
   match '/contractors_signup', to: 'contractors#signup'
   match '/companies_show', to: 'sessions#show'
   match '/companies_signup', to: 'companies#signup'
-  match '/companies', to: 'companies#show'
+  match '/companies/:id', to: 'companies#show'
   match '/companies_signin', to: 'sessions#new'
   match '/companies_signout', to: 'sessions#destroy', via: :delete
   match '/contractors_signin', to: 'contractor_sessions#new'

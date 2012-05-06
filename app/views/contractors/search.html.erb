@@ -1,5 +1,5 @@
 	<div class="hero-unit" >
-
+<br />
 				<h2>Contractors Search</h2>
 				<h5>Search for companies that are hiring</h5>
 
@@ -18,8 +18,7 @@
 <u><h3>All companies</h3></u>
 <ul class="companies">
   <%= @company.each do |c| %>
-    <li>
- <%= image_tag @contractor_profile.avatar.url(:thumb) %>     
+    <li> 
  <%= link_to c.name, c %>
     </li>
   <% end %>

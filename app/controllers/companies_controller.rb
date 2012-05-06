@@ -51,19 +51,19 @@ def edit
        
          if keyward == '3'
 	  @company = Contractor.profession_search(params[:search])
-	  flash.now[:error] = 'Search Contractors by Profession'
+	  flash.now[:success] = 'Search Contractors by Profession'
 	   end
 	 if keyward == '1'
 	  @company = Contractor.name_search(params[:search])
-	  flash.now[:error] = 'Search Contractors by Name'
+	  flash.now[:success] = 'Search Contractors by Name'
 	   end
 	 if keyward == '2'
 	  @company = Contractor.location_search(params[:search])
-	  flash.now[:error] = 'Search Contractors by Location'
+	  flash.now[:success] = 'Search Contractors by Location'
 	   end  
 	if keyward == '4'
 	  @company = Contractor.contractlength_search(params[:search])
-	  flash.now[:error] = 'Search Contractors by Contractlenghtn'
+	  flash.now[:success] = 'Search Contractors by Contractlenghtn'
 	   end  
   end
 

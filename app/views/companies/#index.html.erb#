@@ -7,18 +7,16 @@
 			<td><%=@company.password %></td>
 			<td>None</td>
 		<% end%>	
-</div>
-</div>
 
 <ul class="companies">
   <% @company.each do |c| %>
-    <li><%= link_to c.firstName + ' ' +  c.lastName, c %></li>
-       
+    <li><%= link_to c.firstName + ' ' +  c.lastName, c %>
+        <%=link_to "enter the profile", c%></li> 
  <% end %>
 </ul>  	       
         
 
 <br />
-<%=link_to "Back to Search", companies_search_path, class: "btn" %>
-
-
+<%=link_to "Back", companies_search_path, class: "btn" %>
+</div>
+</div>

@@ -24,8 +24,8 @@
 
 
 	            <ul class="nav pull-right">
-	                  <li><%= link_to "Home",    root_path %></li>
-		    <% if signed_in? %>
+		      <li><%= link_to "Home", root_path %></li>
+	        		    <% if signed_in? %>
 			  <li><%= link_to "Search", companies_search_path %></li>
 	
 			                <li><%= link_to "Profile", current_company %></li>
@@ -36,12 +36,12 @@
                      <% if csigned_in? %>
 		         <li><%= link_to "Companies", '#' %></li>
 			  <li><%= link_to "Search", contractors_search_path %></li>
-        			                  <li><%= link_to "Profile",:controller => "contractor_profiles", :action => "show", :id => @contractor %></li>
+        			                  <li><%= link_to "Profile",'#' %></li>
 			                  <li class="divider"></li>
 			                  <li><%=link_to "Sign out", contractors_signout_path, method: "delete" %></li>
-		      	<% else %>
-		      <li><%= link_to "Sign in", '#' %> </li>
-	      	<% end %>
+<% end %>
+		
+			      	
 	
 	            </ul>
 		    </nav>
