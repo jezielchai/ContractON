@@ -15,7 +15,8 @@ class CompaniesController < ApplicationController
   end
 
   def show
-	  @Company =Company.find(params[:id])
+	  @company = Company.find(params[:id])
+	  @posting = Posting.posting_search(params[:id])
   end
 
 def edit
