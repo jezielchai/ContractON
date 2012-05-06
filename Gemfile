@@ -2,12 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem 'bcrypt-ruby', '3.0.1'
-gem 'thinking-sphinx', '2.0.10'
+#gem 'thinking-sphinx', '2.0.10'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.5'
 gem "heroku"
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
