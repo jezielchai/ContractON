@@ -13,7 +13,11 @@ class CompaniesController < ApplicationController
 		render 'new'
   end
   end
+def showall
+	@company = Company.all
+end
 
+      
   def show
 
 	  @company = Company.find(params[:id])
