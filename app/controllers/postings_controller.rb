@@ -25,8 +25,9 @@ class PostingsController < ApplicationController
   # GET /postings/new.json
   def new
     @posting = Posting.new
+    
     respond_to do |format|
-      @posting.update_attributes(company_id: current_company.id)
+      @posting.company_id = current_company.id
       format.html # new.html.erb
       format.json { render json: @posting }
     end
