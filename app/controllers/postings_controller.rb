@@ -27,7 +27,6 @@ class PostingsController < ApplicationController
     @posting = Posting.new
     
     respond_to do |format|
-      @posting.update_attributes(company_id: current_company.id)
       format.html # new.html.erb
       format.json { render json: @posting }
     end
@@ -43,6 +42,7 @@ class PostingsController < ApplicationController
   # POST /postings.json
   def create
     @posting = Posting.new(params[:posting])
+    @posting.update_attributes(:company_id => current_company.id)
       if @posting.save
         flash[:success] = "Post was successfully created"
         redirect_to controller: "companies", action:"show", id: current_company.id

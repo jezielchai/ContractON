@@ -4,6 +4,7 @@ belongs_to :company
   attr_accessible :city, :description, :duration, :requirements, 
   				  :salary, :state, :title, :zipcode, :company_id
 
+
  def self.posting_search(search)
 	 search_condition = "%#{search}%"
 	 
