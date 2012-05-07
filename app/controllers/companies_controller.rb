@@ -13,9 +13,16 @@ class CompaniesController < ApplicationController
 		render 'new'
   end
   end
+def showall
+	@company = Company.all
+end
 
+      
   def show
-	  @Company =Company.find(params[:id])
+
+	  @company = Company.find(params[:id])
+	  @posting = Posting.posting_search(params[:id])
+
   end
 
 def edit

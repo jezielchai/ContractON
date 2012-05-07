@@ -1,9 +1,9 @@
 <div class = "hero-unit" >
 <br />
-<br />
-<h2><%= @Company.name%> Profile</h2>
-<h5><a href = @Company.link><%= @Company.link %></a></h5>
-<h5>Industry:<%=@Company.industry %></h5>
+
+<h2><%= @company.name%> Profile</h2>
+<h5><a href = @company.link><%= @company.link %></a></h5>
+<h5>Industry:<%=@company.industry %></h5>
 <%=link_to "Edit your profile", edit_company_path %>
 </div>
 
