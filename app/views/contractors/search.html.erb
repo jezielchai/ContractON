@@ -6,11 +6,13 @@
 <br/>
 
 <%= form_tag contractors_path, :method => 'get' do %>
-     <%= text_field_tag :search, params[:search] %>
-     <%= select_tag("keywards", options_for_select([['Company Name', '1'],['Industy', '2']])) %>
+     <%= label_tag(:name) %>
+     <%= text_field_tag :name, params[:name] %>
+     <%= label_tag(:industry) %>
+     <%= text_field_tag :industry, params[:industry] %>
+      <br />
      <%= submit_tag "Search", :class=> 'btn btn-large btn-primary', :name => nil %>
 <% end %>
-
 
 <%= provide(:title, 'All users') %>
 </div>
@@ -19,8 +21,7 @@
 <ul class="companies">
   <%= @company.each do |c| %>
     <li> 
- <%= link_to c.name, c %>
-    </li>
+ <%= link_to c.name, c %></li>
   <% end %>
 </ul>
 

@@ -34,25 +34,16 @@ def edit
   end
 
   def search
-        @contractors = Contractor.paginate(page: params[:page])
-
-           keyward = params[:keywards]
-	   if keyward == '3'
-	  @companies = Contractor.profession_search(params[:search])
-	   end
-	 
-	    if keyward =='1'
+        @contractors = Contractor.paginate(page:params[:page])
+       
 	  @companies = Contractor.name_search(params[:search])
-	    end
+	
+	  @companies = Contractor.profession_search(params[:search])
+	 
   end
 
   def index
          keyward = params[:keywards]
-       
-         if keyward == '3'
-	  @company = Contractor.profession_search(params[:search])
-	  flash.now[:success] = 'Search Contractors by Profession'
-	   end
 	 if keyward == '1'
 	  @company = Contractor.name_search(params[:search])
 	  flash.now[:success] = 'Search Contractors by Name'
@@ -60,10 +51,14 @@ def edit
 	 if keyward == '2'
 	  @company = Contractor.location_search(params[:search])
 	  flash.now[:success] = 'Search Contractors by Location'
-	   end  
+	 end
+	 if keyward == '3'
+	  @company = Contractor.profession_search(params[:search])
+	  flash.now[:success] = 'Search Contractors by Profession'
+	   end
 	if keyward == '4'
 	  @company = Contractor.contractlength_search(params[:search])
-	  flash.now[:success] = 'Search Contractors by Contractlenghtn'
+	  flash.now[:success] = 'Search Contractors by Contract length'
 	   end  
   end
 
