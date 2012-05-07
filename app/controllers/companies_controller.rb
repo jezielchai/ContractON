@@ -21,8 +21,7 @@ end
   def show
 
 	  @company = Company.find(params[:id])
-	  @posting = Posting.posting_search(params[:id])
-
+	  @posting = Posting.posting_search(params[:search])
   end
 
 def edit
@@ -41,32 +40,24 @@ def edit
   end
 
   def search
-        @contractors = Contractor.paginate(page:params[:page])
-       
-	  @companies = Contractor.name_search(params[:search])
-	
-	  @companies = Contractor.profession_search(params[:search])
+      @contractors=Contractor.all
 	 
   end
 
   def index
          keyward = params[:keywards]
 	 if keyward == '1'
-	  @company = Contractor.name_search(params[:search])
-	  flash.now[:success] = 'Search Contractors by Name'
-	   end
-	 if keyward == '2'
-	  @company = Contractor.location_search(params[:search])
-	  flash.now[:success] = 'Search Contractors by Location'
+	  @company = Contractor.fname_search(params[:search])
+	  flash.now[:success] = 'Search Contractors by First Name'
 	 end
-	 if keyward == '3'
-	  @company = Contractor.profession_search(params[:search])
-	  flash.now[:success] = 'Search Contractors by Profession'
+	 if keyward == '2'
+	  @company = Contractor.lname_search(params[:search])
+	  flash.now[:success] = 'Search Contractors by Last Name'
 	   end
-	if keyward == '4'
-	  @company = Contractor.contractlength_search(params[:search])
-	  flash.now[:success] = 'Search Contractors by Contract length'
-	   end  
+	 if keyward == '3'
+	  @company = Contractor.email_search(params[:search])
+	  flash.now[:success] = 'Search Contractors by Email'
+	   end
   end
 
 end

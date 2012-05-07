@@ -11,33 +11,33 @@ has_one :contractor_profiles
 
   before_save :create_remember_token
  
- def self.keywords_search(keywords)
-     
-     find(:all, :conditions => ['keyword LIKE ?', "%={keywords}%", "%#{keywords}%"]) unless keywords.blank?
- end
-  
- def self.profession_search(search)
+	
+  def self.fname_search(search)
 	 search_condition = "%#{search}%"
-	 
     if search
-       find(:all, :conditions => ['profession LIKE ?', search_condition])
+       find(:all, :conditions => ['firstName LIKE ?', search_condition])
+         else
+       find(:all)
+   end
+  end	
+
+   def self.lname_search(search)
+	 search_condition = "%#{search}%"
+    if search
+       find(:all, :conditions => ['lastName LIKE ?', search_condition])
     else
        find(:all)
     end
-	
-
- end 
-  def self.name_search(search)
+   end
+   
+   def self.email_search(search)
 	 search_condition = "%#{search}%"
-	 
     if search
-       find(:all, :conditions => ['lastName || firstName LIKE ?', search_condition])
+       find(:all, :conditions => ['email LIKE ?', search_condition])
     else
        find(:all)
     end
-	
-
- end 
+  end
 
   private
   def create_remember_token

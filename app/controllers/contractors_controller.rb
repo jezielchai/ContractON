@@ -40,16 +40,15 @@ end
   end
 
    def search
-      
+	 @company = Company.all
+	 @contractor = Company.name_conditions(params[:name])
 	 
-	 @company = Company.paginate(page: params[:page]) 
-  end
+   end
 
    def index
-    
-	 
-	 @company = Company.paginate(page: params[:page])
+         @contractor = Company.name_conditions(params[:name])
 
+  
    end
 
 end

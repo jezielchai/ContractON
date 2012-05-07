@@ -13,17 +13,21 @@
       <br />
      <%= submit_tag "Search", :class=> 'btn btn-large btn-primary', :name => nil %>
 <% end %>
-
-<%= provide(:title, 'All users') %>
 </div>
-
+	
 <u><h3>All companies</h3></u>
 <ul class="companies">
   <%= @company.each do |c| %>
-    <li> 
- <%= link_to c.name, c %></li>
-  <% end %>
+    <li>
+  <b><%= link_to c.name, c %></b><br />
+     <%= c.industry %><br />
+     <%= c.link %><br />
+    </li>
+    <% end %>
 </ul>
+<br/>
+
+
 
 
 
