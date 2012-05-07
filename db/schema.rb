@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20120506191159) do
     t.string   "duration"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.string  "company_id"
+    t.string   "company_id"
   end
 
 end
