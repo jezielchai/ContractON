@@ -40,31 +40,15 @@ end
   end
 
    def search
-	   keyward = params[:keywards]
-       
-	 if keyward == '1'
-	  @company = Company.name_search(params[:search])
-	  flash.now[:error] = 'Search Companies by Name'
-	   end
-	 if keyward == '2'
-	  @company = Company.industry_search(params[:search])
-	  flash.now[:error] = 'Search Companies by Industry'
-	   end  
+      
 	 
 	 @company = Company.paginate(page: params[:page]) 
   end
 
    def index
-         keyward = params[:keywards]
-       
-	 if keyward == '1'
-	  @company = Company.name_search(params[:search])
-	  flash.now[:error] = 'Search Companies by Name'
-	   end
-	 if keyward == '2'
-	  @company = Company.industry_search(params[:search])
-	  flash.now[:error] = 'Search Companies by Industry'
-	   end  
+    
+	 
+	 @company = Company.paginate(page: params[:page])
 
    end
 

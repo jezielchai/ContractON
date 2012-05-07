@@ -1,18 +1,17 @@
 <div class = "hero-unit" >
 <br />
+
 <h2><%= @company.name%> Profile</h2>
 <h5><a href = @company.link><%= @company.link %></a></h5>
 <h5>Industry:<%=@company.industry %></h5>
 <%=link_to "Edit your profile", edit_company_path %>
 </div>
 
-<%=link_to "Add a new job posting", new_posting_path %>
+<%=link_to "Add a new job posting", new_posting_path, class:"btn" %>
 <%= provide(:title, 'All available job posts') %>
-<u><h3>All Job Posts</h3></u>
-<ul class="companies">
-  <% @posting.each do |p| %>
-  <li><%= link_to p.title, p %></li>
-<%end%>
-</ul>
-
+<br />
+<h3> Current Posting</h3>
+<% @posting.each do |p| %>
+	<li> <%=link_to p.title, p%>
+<% end %>
 

@@ -10,6 +10,11 @@ has_one :contractor_profiles
   validates :password, :on=> :create, length: { minimum: 6 }
 
   before_save :create_remember_token
+ 
+ def self.keywords_search(keywords)
+     
+     find(:all, :conditions => ['keyword LIKE ?', "%={keywords}%", "%#{keywords}%"]) unless keywords.blank?
+ end
   
  def self.profession_search(search)
 	 search_condition = "%#{search}%"
