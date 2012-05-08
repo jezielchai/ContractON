@@ -9,16 +9,13 @@ class Company < ActiveRecord::Base
 
 
   before_save :create_remember_token
-  
-  def companies
-    @companies ||= find_companies
-  end
-  
+
+  private 
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
     
-  def find_companies
-    Company.find(:all, :conditions => conditions)
-  end
-  
   def self.name_conditions(name)
     find(:all, :conditions => ['name LIKE ?', "%#{name}%"]) unless name.blank?
   end
@@ -43,10 +40,5 @@ def conditions_parts
   private_methods(false).grep(/_conditions$/).map { |m| send(m) }.compact
 end
 
-private 
-
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
-    end
     
 end

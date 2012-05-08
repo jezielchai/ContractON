@@ -26,7 +26,7 @@ ContractON::Application.routes.draw do
   match '/companies_show', to: 'sessions#show'
   match '/companies_signup', to: 'companies#signup'
   match '/companies/:id', to: 'companies#show'
-  match '/contractor_profiles/:id', to: 'contractor_profiles#show'
+  match '/contractor_profiles/:id', to: 'contractor_profile#show'
   match '/companies_signin', to: 'sessions#new'
   match '/companies_signout', to: 'sessions#destroy', via: :delete
   match '/contractors_signin', to: 'contractor_sessions#new'

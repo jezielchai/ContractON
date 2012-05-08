@@ -41,15 +41,12 @@ end
 
    def search
 	 @company = Company.all
-	 @contractor = Company.name_conditions(params[:name])
-	 
    end
 
    def index
-         @contractor = Company.name_conditions(params[:name])
-
-  
-   end
+         @contractor = Company.name_conditions(params[:name])  
+	 @contractor = Company.industry_conditions(params[:industry])
+         end
 
 end
 
