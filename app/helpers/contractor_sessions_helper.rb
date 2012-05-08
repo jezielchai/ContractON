@@ -15,6 +15,10 @@ module ContractorSessionsHelper
 		@current_contractor ||= contractor_from_remember_token
 	end
         
+        def current_contractor_profile= (contractor_profile)
+               @current_contractor_profile= contractor_profile
+	end
+
 	def sign_out
 		current_contractor = nil
 		cookies.delete(:remember_token)
