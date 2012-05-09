@@ -1,5 +1,9 @@
 ContractON::Application.routes.draw do
 
+  resources :replies
+
+  resources :opinions
+
   root :to => 'static_pages#home'
  
   # RESOURCES

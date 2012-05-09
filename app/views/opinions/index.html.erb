@@ -1,0 +1,33 @@
+<h1>Listing opinions</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Contractor</th>
+    <th>Company</th>
+    <th>Posting</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @opinions.each do |opinion| %>
+  <tr>
+    <td><%= opinion.content %></td>
+    <td><%= opinion.created_at %></td>
+    <td><%= opinion.updated_at %></td>
+    <td><%= opinion.contractor_id %></td>
+    <td><%= opinion.company_id %></td>
+    <td><%= opinion.posting_id %></td>
+    <td><%= link_to 'Show', opinion %></td>
+    <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
+    <td><%= link_to 'Destroy', opinion, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Opinion', new_opinion_path %>
