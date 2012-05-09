@@ -39,8 +39,13 @@ class PostingsController < ApplicationController
   end
   
   def inquiry
-   @posting = Posting.find(params[:id])
-   @company = @posting.company
+   if !csigned_in? and not params[:from_email].nil?
+      redirect_to(root_path)
+    end
+    if params[:id].nil?
+         @posting = Posting.find(params[:id])
+    end
+    @opinion = Opinion.new
   end
 
   # POST /postings

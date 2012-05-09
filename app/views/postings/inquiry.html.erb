@@ -1,1 +1,17 @@
-<h3>Make an new inquiry</h3>
+<h4>Make an new inquiry</h4>
+
+<%= form_for(@opinion) do |f| %>
+ <div class="actions">
+  <div class="field">
+    <%= f.label "Your inquiry:" %><br />
+    <%= f.text_area :content, cols: 30, rows:6 %>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+
+<% end %>
+</div>
+</div>
+<%= link_to "Back to Home", '#', class:"span-16" %>
+

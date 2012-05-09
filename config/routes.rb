@@ -1,14 +1,21 @@
 ContractON::Application.routes.draw do
 
   resources :replies
-
   resources :opinions
 
   root :to => 'static_pages#home'
  
   # RESOURCES
-  resources :postings
-  resources :contractor_profiles
+  resources :postings do
+    member do
+      get 'inquiry'
+    end
+  end
+  resources :contractor_profiles do
+    member do
+     get 'show'
+    end
+  end
   resources :companies
   resources :contractors
   resources :profiles

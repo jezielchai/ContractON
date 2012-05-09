@@ -41,6 +41,9 @@ class OpinionsController < ApplicationController
   # POST /opinions.json
   def create
     @opinion = Opinion.new(params[:opinion])
+    @opinion.posting = Posting.find(params[:opinion]["posting"])
+  end    
+   
 
     respond_to do |format|
       if @opinion.save
