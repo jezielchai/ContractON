@@ -37,6 +37,11 @@ class PostingsController < ApplicationController
   def edit
     @posting = Posting.find(params[:id])
   end
+  
+  def inquiry
+   @posting = Posting.find(params[:id])
+   @company = @posting.company
+  end
 
   # POST /postings
   # POST /postings.json

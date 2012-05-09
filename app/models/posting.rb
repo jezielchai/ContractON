@@ -1,6 +1,6 @@
 class Posting < ActiveRecord::Base
 belongs_to :company
-
+has_many :opinions
   attr_accessible :city, :description, :duration, :requirements, 
   				  :salary, :state, :title, :zipcode, :company_id
 
