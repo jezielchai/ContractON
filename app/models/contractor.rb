@@ -1,43 +1,43 @@
 class Contractor < ActiveRecord::Base
 has_one :contractor_profiles
-
-  attr_accessible :firstName, :lastName, :password, :email
-  has_secure_password
-
+attr_accessible :firstName, :lastName, :password, :email
+has_secure_password  
+  
   validates :firstName, presence: true, length: { maximum:50 }
   validates :lastName, presence: true, length: { maximum:50 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :password, :on=> :create, length: { minimum: 6 }
 
+  before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
  
- def self.keywords_search(keywords)
-     
-     find(:all, :conditions => ['keyword LIKE ?', "%={keywords}%", "%#{keywords}%"]) unless keywords.blank?
- end
-  
- def self.profession_search(search)
+	
+  def self.fname_search(search)
 	 search_condition = "%#{search}%"
-	 
     if search
-       find(:all, :conditions => ['profession LIKE ?', search_condition])
+       find(:all, :conditions => ['firstName LIKE ?', search_condition])
+         else
+       find(:all)
+   end
+  end	
+
+   def self.lname_search(search)
+	 search_condition = "%#{search}%"
+    if search
+       find(:all, :conditions => ['lastName LIKE ?', search_condition])
     else
        find(:all)
     end
-	
-
- end 
-  def self.name_search(search)
+   end
+   
+   def self.email_search(search)
 	 search_condition = "%#{search}%"
-	 
     if search
-       find(:all, :conditions => ['lastName || firstName LIKE ?', search_condition])
+       find(:all, :conditions => ['email LIKE ?', search_condition])
     else
        find(:all)
     end
-	
-
- end 
+  end
 
   private
   def create_remember_token

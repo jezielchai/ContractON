@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506191159) do
+ActiveRecord::Schema.define(:version => 20120509163103) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20120506191159) do
   add_index "contractors", ["email"], :name => "index_contractors_on_email", :unique => true
   add_index "contractors", ["remember_token"], :name => "index_contractors_on_remember_token"
 
+  create_table "opinions", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "contractor_id"
+    t.integer  "company_id"
+    t.integer  "posting_id"
+  end
+
   create_table "postings", :force => true do |t|
     t.string   "title"
     t.string   "description"
@@ -77,7 +86,16 @@ ActiveRecord::Schema.define(:version => 20120506191159) do
     t.string   "duration"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.string  "company_id"
+    t.string   "company_id"
+  end
+
+  create_table "replies", :force => true do |t|
+    t.text     "content"
+    t.integer  "contractor_id"
+    t.integer  "company_id"
+    t.integer  "opinion_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

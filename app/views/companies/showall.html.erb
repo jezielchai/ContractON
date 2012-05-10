@@ -1,11 +1,14 @@
 <div class = "hero-unit" >
 <br />
-<h2>All Companies</h2>
-
-
-  <% @company.each do |p| %>
-	  <li><b>Name:</b> <%=  p.name %><%="          " %> <b>Industry:</b> <%= p.industry %> <%=" " %> <%=link_to "Enter", p, class: "btn" %> </li>
-<%end%>
+<u><h3>All companies</h3></u>
+<ul class="companies">
+  <%= @company.each do |c| %>
+    <li>
+  <b><%= link_to c.name, c %></b><br />
+     <%= c.industry %><br />
+     <%= c.link %><br />
+    </li>
+    <% end %>
 </ul>
 
 

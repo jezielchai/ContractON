@@ -36,7 +36,7 @@
                      <% if csigned_in? %>
 		         <li><%= link_to "Companies", showAllCompany_path %></li>
 			  <li><%= link_to "Search", contractors_search_path %></li>
-        			                  <li><%= link_to "Profile", current_contractor %></li>
+        			                  <li><%= link_to "Profile", contractor_profiles_path(@contractor) %></li>
 			                  <li class="divider"></li>
 			                  <li><%=link_to "Sign out", contractors_signout_path, method: "delete" %></li>
 <% end %>
@@ -50,6 +50,8 @@
 	      </div>
 	  </header>
       <div class="container">
+      	<div class = "relative">
+      	</div>
 		<%= yield %>
       </div>
 	</body>

@@ -25,8 +25,12 @@ class PostingsController < ApplicationController
   # GET /postings/new.json
   def new
     @posting = Posting.new
+    
     respond_to do |format|
+<<<<<<< HEAD
      
+=======
+>>>>>>> f4ca9e38f62345d14b93429d04de37cc7c563fdc
       format.html # new.html.erb
       format.json { render json: @posting }
     end
@@ -37,12 +41,24 @@ class PostingsController < ApplicationController
   def edit
     @posting = Posting.find(params[:id])
   end
+  
+  def inquiry
+   if !csigned_in? and not params[:from_email].nil?
+      redirect_to(root_path)
+    end
+    if params[:id].nil?
+         @posting = Posting.find(params[:id])
+    end
+    @opinion = Opinion.new
+  end
 
   # POST /postings
   # POST /postings.json
   def create
     @posting = Posting.new(params[:posting])
-     @posting.update_attributes(company_id: current_company.id)
+
+    @posting.update_attributes(:company_id => current_company.id)
+
       if @posting.save
         flash[:success] = "Post was successfully created"
         redirect_to current_company

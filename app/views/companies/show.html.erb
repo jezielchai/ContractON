@@ -10,8 +10,10 @@
 <%=link_to "Add a new job posting", new_posting_path, class:"btn" %>
 <%= provide(:title, 'All available job posts') %>
 <br />
-<h3> Current Posting</h3>
+<h3> Current Postings</h3>
+<ul class="companies">
 <% @posting.each do |p| %>
 	<li> <%=link_to p.title, p%>
 <% end %>
+</ul>
 
