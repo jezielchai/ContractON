@@ -1,0 +1,21 @@
+<h1>Listing contractor_profiles</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contractor_profiles.each do |contractor_profile| %>
+  <tr>
+    <td><%= link_to 'Show', contractor_profile %></td>
+    <td><%= link_to 'Edit', edit_contractor_profile_path(contractor_profile) %></td>
+    <td><%= link_to 'Destroy', contractor_profile, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Contractor profile', new_contractor_profile_path %>

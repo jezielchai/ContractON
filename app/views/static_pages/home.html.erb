@@ -1,4 +1,5 @@
 <div class="hero-unit">
+<!--<<<<<<< HEAD
 	<h2>Welcome to ContractON</h2>
     <p>
     	ContractON is a place where contractors and clients can connect easier
@@ -15,4 +16,26 @@
 		 <%= link_to "Sign In", csignin_path, class: "btn btn-large btn-primary" %>
 		 <%= link_to "Sign Up Now!", csignup_path, class: "btn btn-large btn-primary" %> 
 	</div>
+</div>
+======= -->
+		<h2>Welcome to ContractON</h2>
+                <p>ContractON is a place where contractors and clients can connect easier</p>
+
+		<div class = 'row'>
+			<div class="span4">
+		<h3>For Contractors:</h3>
+		<%= link_to "Sign Up Now!", contractors_signup_path, class: "btn btn-large btn-primary" %>
+		<br /><br />
+		<%= link_to "Sign In!", contractors_signin_path, class: "btn btn-large btn-primary" %>
+	     </div>
+	     <div class="span4">
+		<h3>For Companies: </h3>
+
+		
+		 <%= link_to "Sign Up Now!", companies_signup_path, class: "btn btn-large btn-primary" %>
+		 <br /><br />
+		 <%= link_to "Sign In", companies_signin_path, class: "btn btn-large btn-primary" %>
+
+		</div>
+		</div>
 </div>

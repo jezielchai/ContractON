@@ -1,47 +1,18 @@
-<div class="relative">
-<h1>Company Profile</h1>
-
-<h2>This is page for company profile</h2>
-
-		<img src='#' alt="Your picture"> 	
-	<div class="span6 offset3">
-		
-
-
-		<p>
-		<b>Name:</b>
-                <%=@Company.name %>
-		</p>
-                <p>
-		<b>Induatry:</b>
-                <%=@Company.industry %>
-		</p>
-                <p>
-		<b>Contracts available now:</b>
-                <%="none" %>
-		</p>
-                <p>
-		<b>Contact Information:</b>
-                <%="none" %>
-		</p>
-                <% if signed_in? %>
-		
-		<p>
-		<b>Supervisor:</b>
-                <%="none" %>
-		</p>
-		        
-		<% end%>
-
-
-	</div>
-	<% if signed_in? %>
-		<%= link_to "Search", csearch_path, class: "btn btn-large btn-primary" %>
-	<% end %>
-	<% if csigned_in? %>
-		<%= link_to "Back", search_path, class: "btn" %>
-	<% end %>
-
+<div class = "hero-unit" >
+<h2><%= @company.name%> Profile</h2>
+<h5><a href = @company.link><%= @company.link %></a></h5>
+<h5>Industry:<%=@company.industry %></h5>
+<%=link_to "Edit your profile", edit_company_path %>
 </div>
-
+ <% if signed_in? %>
+	 <%=link_to "Add a new job posting", new_posting_path, class:"btn" %>
+ <% end %>
+<%= provide(:title, 'All available job posts') %>
+<br />
+<h3> Current Postings</h3>
+<ul class="companies">
+<% @posting.each do |p| %>
+	<li> <%=link_to p.title, p%>
+<% end %>
+</ul>
 

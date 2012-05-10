@@ -1,4 +1,4 @@
-<div class="relative">
+<div class = "hero-unit" >
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,18 +15,15 @@
   <b>Email:</b>
   <%= @contractor.email %>
   </p>
-<p>
-<b>Profession:</b>
-<%=@contractor.profession %>
-</p>
+
 
 <% if csigned_in? %>
 <%= link_to 'Edit', edit_contractor_path(@contractor) %> |
 <%= link_to 'Back', contractors_path %>
 
-	<%= link_to 'Search', search_path, class: "btn" %>
+	<%= link_to 'Search', contractors_search_path, class: "btn" %>
 <% end %>
 <% if signed_in? %>
-	<%= link_to 'Back', csearch_path, class: "btn" %>
+	<%= link_to 'Back', companies_search_path, class: "btn" %>
 <%end %>
 </div>

@@ -2,7 +2,7 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= render 'layouts/stylesheets' %> 
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <!--[if lt IE 9]>
@@ -10,58 +10,40 @@
   <![endif]-->
 </head>
 	<body>
-		<header class="navbar navbar-fixed-top">
-		
+		<header class="navbar navbar-fixed-top">		
 	  <div class="navbar-inner">
 		  <%flash.each do |key, value| %>
 			  <div class="alert alert-<%= key %>"><%= value %></div>
 		  <% end %>
-
 	           <div class="container">
 	          	<nav>
 	          		<b style = "font-size: 20px;">
 	          			<%= link_to "ContractON", root_path %>
 	          		</b>
-	          		
+	     
+
+
 	            <ul class="nav pull-right">
-	              <li><%= link_to "Home",    root_path %></li>
-		      	  <li><%= link_to "Help",    '#' %></li>
-		    <% if signed_in? or csigned_in? %>
-			      <li><%= link_to "Companies", '#' %></li>
-			     <!--comment[ <li id ="fat-medu" class="dropdown">
-
-			        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account </a>  
-				</li> ] -->
-				<% if signed_in? %>
-					<li><%= link_to "Account", current_company %></li>
-					<ul class="dropdown-menu">
-
+			    <li><%= link_to "Home", root_path %></li>
+			    <li><%= link_to "See Posting", postingall_path %></li>
+	        		    <% if signed_in? %>
+			  <li><%= link_to "Search", companies_search_path %></li>
+	
 			                <li><%= link_to "Profile", current_company %></li>
-			                <li><%=link_to "Settings", '#'%></li>
 			                <li class="divider"></li>
-			                <li>
-			                 <%=link_to "Sign out", csignout_path, method: "delete" %>
-			                </li>
-		                        </ul> 
-			<% end %>
-                                <% if csigned_in? %>
-                                          <li><%= link_to "Account", current_contractor %></li>
-			                  <ul class="dropdown-menu">
+			                 <li><%=link_to "Sign out", companies_signout_path, method: "delete" %></li>
+					<% end %>
 
-			                  <li><%= link_to "Profile", current_contractor %></li>
-			                  <li><%=link_to "Settings", '#'%></li>
+
+                     <% if csigned_in? %>
+		         <li><%= link_to "Companies", showAllCompany_path %></li>
+			  <li><%= link_to "Search", contractors_search_path %></li>
+        			                  <li><%= link_to "Profile", contractor_profiles_path(@contractor) %></li>
 			                  <li class="divider"></li>
-			                  <li>
-			                    <%=link_to "Sign out", csignout_path, method: "delete" %>
-			                 </li>
-			                 <% end %>
-			                 <% else %>
-		      			<li><%= link_to "Sign in", '#' %> </li>
-	      	
-				            </ul>
-			        		<% end %>
-	      	
-
+			                  <li><%=link_to "Sign out", contractors_signout_path, method: "delete" %></li>
+<% end %>
+		
+			      	
 	            </ul>
 		    </nav>
 	   
@@ -69,7 +51,9 @@
 	      </div>
 	  </header>
       <div class="container">
+      	<div class = "relative">
 		<%= yield %>
+		</div>
 	  </div>
 	</body>
 </html>

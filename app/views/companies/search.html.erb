@@ -1,28 +1,31 @@
-<div class="relative">
-	
-		<div class="hero-unit" >
-			<div class="span6 offset3">
-				<h1>                     Search Page</h1>
-			</div>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<div class="span6 offset3">
+<div class="hero-unit" >
+<br />
+			<h2>Companies Search</h2>
+			<h5>Search for contractors who seek employment</h5>
+<br />
+
 <%= form_tag companies_path, :method => 'get' do %>
   <p>
+
     <%= text_field_tag :search, params[:search] %>
-     <%= select_tag("keywards", options_for_select([['Name', '1'],['Geographic Location', '2'],['Profession','3'],['Contract Length','4'], ])) %>
-     <%= submit_tag "Search", :name => nil %>
-     </p>
-     <b> <li> Now you can only search by contractor's Name or Profession </li></b>
-     <b> <li> Blank means search all </li></b>
+    <%= select_tag("keywards", options_for_select([['First Name', '1'],['Last Name', '2'],['Email', '3'] ])) %>
+
+    <%= submit_tag "Search", :class=>'btn btn-large btn-primary', :name => nil %>
+   </p>
 <% end %>
-
-</div>
 </div>
 
-</div>
+<u><h2>All Contractors</h2></u>
+
+<ul class="companies">
+  <% @contractors.each do |c| %>
+    <li>
+  <b><%= link_to c.firstName + ' ' +  c.lastName, c %></b><br />
+  <%= c.email %><br />
+    </li>
+  <% end %>
+</ul>
+
+<br />
+<br />
+

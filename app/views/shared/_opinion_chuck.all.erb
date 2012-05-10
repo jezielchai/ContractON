@@ -1,0 +1,8 @@
+<div class="opinion">
+<% if not o.contractor.nil? %>
+
+<div class="firstName"><%= o.contractor.firstName %></div>
+<% end %>
+<div class="time"><%= time_ago_in_words(o.created_at).capitalize %> ago</div>
+<div class="content"><%= o.content %></div>
+</div>

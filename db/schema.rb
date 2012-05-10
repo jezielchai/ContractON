@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429225713) do
+ActiveRecord::Schema.define(:version => 20120509163103) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -21,9 +21,37 @@ ActiveRecord::Schema.define(:version => 20120429225713) do
     t.datetime "updated_at",      :null => false
     t.string   "remember_token"
     t.string   "password_digest"
+    t.string   "link"
   end
 
   add_index "companies", ["remember_token"], :name => "index_companies_on_remember_token"
+
+  create_table "contractor_profiles", :force => true do |t|
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "school"
+    t.string   "major"
+    t.string   "degree"
+    t.string   "license"
+    t.text     "skills"
+    t.text     "interests"
+    t.string   "website"
+    t.string   "work"
+    t.string   "length"
+    t.integer  "salary"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "profession"
+    t.integer  "contractor_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
 
   create_table "contractors", :force => true do |t|
     t.string   "firstName"
@@ -32,11 +60,42 @@ ActiveRecord::Schema.define(:version => 20120429225713) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
-    t.string   "profession"
     t.string   "remember_token"
   end
 
   add_index "contractors", ["email"], :name => "index_contractors_on_email", :unique => true
   add_index "contractors", ["remember_token"], :name => "index_contractors_on_remember_token"
+
+  create_table "opinions", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "contractor_id"
+    t.integer  "company_id"
+    t.integer  "posting_id"
+  end
+
+  create_table "postings", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "requirements"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.decimal  "salary"
+    t.string   "duration"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "company_id"
+  end
+
+  create_table "replies", :force => true do |t|
+    t.text     "content"
+    t.integer  "contractor_id"
+    t.integer  "company_id"
+    t.integer  "opinion_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
 end
