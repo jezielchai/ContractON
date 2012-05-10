@@ -4,7 +4,7 @@ class ContractorsController < ApplicationController
 def signup
  @contractor = Contractor.new
  @title = "Sign up"
- redirect_to 
+
 end
 
   def show
@@ -41,12 +41,34 @@ end
   end
 
    def search
+	   
 	 @company = Company.all
+          
+
+
    end
 
    def index
-         @contractor = Company.name_conditions(params[:name])  
-	 @contractor = Company.industry_conditions(params[:industry])
+	   name= params[:name]
+	   industry =  params[:industry]
+	   
+	   if name.blank? and !industry.blank?
+                  @contractor = Company.industry_conditions(industry )
+	   end
+
+	   if !name.blank? and industry.blank?
+                  @contractor = Company.name_conditions(name )
+	   end
+
+	   if name.blank? and industry.blank?
+                  @contractor = Company.find(:all, :conditions => ['industry LIKE ?', "hahhahhahahkidinghsdshhdshnensndfskdfskmvnmzdlkfkvmlkkw,zmklmjcxvj"])
+	   end
+	   if !name.blank? and !industry.blank?
+                  
+                   @contractor = Company.all_conditions(name, industry ) 
+	   end
+        
+	
          end
 
 end

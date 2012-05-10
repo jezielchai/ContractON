@@ -33,7 +33,7 @@ ContractON::Application.routes.draw do
   # URLS
   match '/index', to: 'companies#index'
   match '/help', to: 'static_pages#help'
-  match '/contractors_signup', to: 'contractors#signup'
+  match 'contractors_signup', to: 'contractors#signup'
   match '/companies_show', to: 'sessions#show'
   match '/companies_signup', to: 'companies#signup'
   match '/companies/:id', to: 'companies#show'
