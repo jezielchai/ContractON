@@ -39,8 +39,15 @@
   <b>Duration:</b>
   <%= @posting.duration %>
 </p>
+<% if signed_in? or csigned_in? %>
+	<%= link_to 'Make an Inquiry', inquiry_posting_path(@posting) %> 
+<% end %>
 
-<%= link_to 'Make an Inquiry', inquiry_posting_path(@posting) %> |
-<%= link_to 'Back', postings_path %>
+<% if current_contractor.nil? and current_company.nil? %>
+	<br />
+	<h3> Want to Inquiry the company? Please sign in </h3>
+	<%= link_to "Sign In!", contractors_signin_path, class: "btn " %>
+<% end %>
+<%=link_to 'Back', postings_path %>
 
 

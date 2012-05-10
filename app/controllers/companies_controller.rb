@@ -21,7 +21,7 @@ end
   def show
 
 	  @company = Company.find(params[:id])
-	  @posting = Posting.posting_search(params[:search])
+	  @posting = Posting.posting_search(params[:id])
   end
 
 def edit

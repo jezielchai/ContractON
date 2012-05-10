@@ -6,8 +6,9 @@
 <h5>Industry:<%=@company.industry %></h5>
 <%=link_to "Edit your profile", edit_company_path %>
 </div>
-
-<%=link_to "Add a new job posting", new_posting_path, class:"btn" %>
+ <% if signed_in? %>
+	 <%=link_to "Add a new job posting", new_posting_path, class:"btn" %>
+ <% end %>
 <%= provide(:title, 'All available job posts') %>
 <br />
 <h3> Current Postings</h3>

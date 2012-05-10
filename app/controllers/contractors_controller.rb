@@ -4,6 +4,7 @@ class ContractorsController < ApplicationController
 def signup
  @contractor = Contractor.new
  @title = "Sign up"
+ redirect_to 
 end
 
   def show

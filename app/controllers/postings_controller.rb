@@ -27,10 +27,9 @@ class PostingsController < ApplicationController
     @posting = Posting.new
     
     respond_to do |format|
-<<<<<<< HEAD
+
      
-=======
->>>>>>> f4ca9e38f62345d14b93429d04de37cc7c563fdc
+
       format.html # new.html.erb
       format.json { render json: @posting }
     end

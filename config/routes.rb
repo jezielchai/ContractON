@@ -44,7 +44,8 @@ ContractON::Application.routes.draw do
   match '/contractors_signout', to: 'contractor_sessions#destroy', via: :delete
   match 'companies_search', to: 'companies#search'
   match 'contractors_search', to: 'contractors#search'
-  match 'showAllCompany', to: 'companies#showall'
+  match 'showAllCompany', to: 'companies#showalli'
+  match 'postingall', to: 'postings#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
